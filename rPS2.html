@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Rock Paper Scissors Game</title>
+    </head>
+
+    <body>
+
+        <script>
+            
+            function computerPlay() {
+                let value = Math.random();
+
+                if (value < 0.34){
+                    return "rock";
+                } else if (value > 0.34 && value < 0.67){
+                    return "paper";
+                } else {
+                    return "scissors";
+                }
+            
+            }
+
+            /*function playerSelection() {
+                return;
+            }*/
+            
+            
+            function game(){
+
+                function computerPlay() {
+                let value = Math.random();
+
+                if (value < 0.34){
+                    return "rock";
+                } else if (value > 0.34 && value < 0.67){
+                    return "paper";
+                } else {
+                    return "scissors";
+                    }
+            
+                }
+
+                function playerSelection(playerInput) {
+
+                    if (playerInput.toLowerCase() == "rock" || playerInput.toLowerCase()== "paper" || playerInput.toLowerCase() == "scissors"){
+                        return;
+                    } else {
+                        alert("You entered the wrong input.");
+                    }
+                }
+            
+
+                function playRound(playerInput, computerInput) {
+
+                if (playerInput == computerInput) {
+                    gameTie++;
+                    alert("You tied!"); 
+                } else if (playerInput == "rock" && computerInput == "paper") {
+                    computerWin++;
+                    alert("The computer won this round!")
+                } else if (playerInput == "rock" &&  computerInput == "scissors"){ 
+                    playerWin++;
+                    alert("You won this round!");
+                } else if (playerInput == "paper" && computerInput == "rock") {
+                    playerWin++;
+                    alert ("You won this round!");
+                } else if (playerInput == "paper" && computerInput == "scissors"){
+                    computerWin++;
+                    alert("The computer won this round!");
+                } else if (playerInput == "scissors" && computerInput == "rock"){
+                    computerWin++;
+                    alert("The computer won this round!");
+                } else {
+                    playerWin++;
+                    alert("You won this round!");
+                    }
+
+                
+
+                }
+                
+                let playerWin = "";
+                let computerWin = "";
+                let gameTie = "";
+                
+
+                for(i =1; i < 6; i++){
+                    let playerInput = prompt("Please enter rock, paper, or scissors...");
+                    let computerInput = computerPlay();
+                    playRound(playerInput, computerInput);
+                    
+                    alert("The score is: Player Wins - " + playerWin + " | Computer Wins - " + computerWin + " | Tie Games - " + gameTie + ".");
+                }
+                
+                
+            }
+            
+            game();
+            
+         
+        
+        </script>
+
+
+    </body>
+</html>
