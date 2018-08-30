@@ -43,32 +43,34 @@
 
                 function playerSelection(playerInput) {
 
-                    if (playerInput.toLowerCase() == "rock" || playerInput.toLowerCase()== "paper" || playerInput.toLowerCase() == "scissors"){
-                        return;
+                    if ((playerInput.toLowerCase() == "rock") || (playerInput.toLowerCase()== "paper") || (playerInput.toLowerCase() == "scissors")){
+                        let playersValue = playerInput.toLowerCase();
+                        return playersValue;
                     } else {
                         alert("You entered the wrong input.");
+                        return exception;
                     }
                 }
             
 
-                function playRound(playerInput, computerInput) {
+                function playRound(playersValue, computerInput) {
 
-                if (playerInput == computerInput) {
+                if (playersValue == computerInput) {
                     gameTie++;
                     alert("You tied!"); 
-                } else if (playerInput == "rock" && computerInput == "paper") {
+                } else if (playersValue == "rock" && computerInput == "paper") {
                     computerWin++;
                     alert("The computer won this round!")
-                } else if (playerInput == "rock" &&  computerInput == "scissors"){ 
+                } else if (playersValue == "rock" &&  computerInput == "scissors"){ 
                     playerWin++;
                     alert("You won this round!");
-                } else if (playerInput == "paper" && computerInput == "rock") {
+                } else if (playersValue == "paper" && computerInput == "rock") {
                     playerWin++;
                     alert ("You won this round!");
-                } else if (playerInput == "paper" && computerInput == "scissors"){
+                } else if (playersValue == "paper" && computerInput == "scissors"){
                     computerWin++;
                     alert("The computer won this round!");
-                } else if (playerInput == "scissors" && computerInput == "rock"){
+                } else if (playersValue == "scissors" && computerInput == "rock"){
                     computerWin++;
                     alert("The computer won this round!");
                 } else {
@@ -88,7 +90,8 @@
                 for(i =1; i < 6; i++){
                     let playerInput = prompt("Please enter rock, paper, or scissors...");
                     let computerInput = computerPlay();
-                    playRound(playerInput, computerInput);
+                    let playersValue = playerSelection(playerInput);
+                    playRound(playersValue, computerInput);
                     
                     alert("The score is: Player Wins - " + playerWin + " | Computer Wins - " + computerWin + " | Tie Games - " + gameTie + ".");
                 }
